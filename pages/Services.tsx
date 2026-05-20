@@ -56,10 +56,10 @@ const Services: React.FC = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
         </div>
         <div className="relative z-10 text-center px-4 pt-12">
-          <h2 className="text-brand-cyan text-sm font-bold tracking-[0.4em] uppercase mb-4 animate-fade-in">Service Suite</h2>
-          <h1 className="text-4xl md:text-7xl font-display font-black text-brand-light mb-6 uppercase tracking-tight">Our Capabilities</h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-brand-cyan to-brand-accent mx-auto rounded-full mb-8"></div>
-          <p className="text-brand-slate max-w-2xl mx-auto text-base md:text-lg font-medium leading-relaxed hidden md:block">
+          <h2 className="text-brand-cyan text-sm font-bold tracking-[0.4em] uppercase mb-4 animate-fade-down">Service Suite</h2>
+          <h1 className="text-4xl md:text-7xl font-display font-black text-brand-light mb-6 uppercase tracking-tight animate-fade-up">Our Capabilities</h1>
+          <div className="w-24 h-1 bg-gradient-to-r from-brand-cyan to-brand-accent mx-auto rounded-full mb-8 animate-zoom"></div>
+          <p className="text-brand-slate max-w-2xl mx-auto text-base md:text-lg font-medium leading-relaxed hidden md:block animate-fade-up" style={{ animationDelay: '0.2s' }}>
             Engineered for elite speed, styled for visual perfection. Explore our technology stack capabilities.
           </p>
         </div>
@@ -69,15 +69,16 @@ const Services: React.FC = () => {
       <section className="py-24 relative z-10">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            {services.map((service) => (
+            {services.map((service, index) => (
               <div
                 key={service.id}
-                className="glass-card glass-card-hover p-8 pb-10 rounded-3xl border border-brand-primary/10 flex flex-col justify-between group"
+                className="glass-card glass-card-hover p-8 pb-10 rounded-3xl border border-brand-primary/10 flex flex-col justify-between group hover-scale animate-zoom"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div>
                   {/* Service Icon */}
                   <div className="w-14 h-14 rounded-2xl bg-brand-primary/10 flex items-center justify-center mb-8 border border-brand-primary/20 group-hover:bg-brand-primary/20 transition-all duration-300">
-                    <i className={`fa-solid ${service.icon} text-2xl text-brand-cyan group-hover:scale-110 transition-transform`}></i>
+                    <i className={`fa-solid ${service.icon} text-2xl text-brand-cyan group-hover:rotate-12 transition-transform`}></i>
                   </div>
 
                   <h3 className="text-2xl font-display font-bold text-brand-light mb-4 tracking-tight leading-none group-hover:text-brand-cyan transition-colors">
