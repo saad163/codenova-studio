@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const ContactForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [validationError, setValidationError] = useState<string | null>(null);
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -50,25 +50,25 @@ const ContactForm: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row bg-[#080424]/60 backdrop-blur-md shadow-[0_20px_50px_rgba(79,70,229,0.1)] overflow-hidden rounded-3xl border border-brand-primary/20">
-          
+
           {/* Info Side */}
           <div className="lg:w-1/3 bg-gradient-to-b from-brand-card to-[#030014] p-10 lg:p-14 text-brand-light relative overflow-hidden border-r border-brand-primary/10">
             {/* Ambient corner glow */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-cyan/10 rounded-full blur-3xl"></div>
-            
+
             {/* Pulsing Availability Badge */}
             <div className="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 px-3.5 py-1.5 rounded-full mb-6 backdrop-blur-sm">
               <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping"></span>
               <span className="text-emerald-400 text-[9px] font-black uppercase tracking-wider">Available for Freelance & Contracts</span>
             </div>
-            
+
             <h3 className="text-brand-cyan text-xs font-bold uppercase tracking-[0.3em] mb-4">Start a Project</h3>
             <h2 className="text-4xl font-display font-black mb-10 leading-tight">
               LET'S BUILD <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-accent">SOMETHING</span> <br />
               EPIC.
             </h2>
-            
+
             <div className="space-y-10">
               <div className="group">
                 <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-cyan mb-2">Direct Contact Email</h4>
@@ -119,9 +119,9 @@ const ContactForm: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <label className="block text-[10px] font-bold text-brand-cyan mb-3 uppercase tracking-wider">Your Name</label>
-                  <input 
-                    type="text" 
-                    required 
+                  <input
+                    type="text"
+                    required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Enter your name"
@@ -130,9 +130,9 @@ const ContactForm: React.FC = () => {
                 </div>
                 <div>
                   <label className="block text-[10px] font-bold text-brand-cyan mb-3 uppercase tracking-wider">Email Address</label>
-                  <input 
-                    type="text" 
-                    required 
+                  <input
+                    type="text"
+                    required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="email@company.com"
@@ -144,7 +144,7 @@ const ContactForm: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <label className="block text-[10px] font-bold text-brand-cyan mb-3 uppercase tracking-wider">Project Type</label>
-                  <select 
+                  <select
                     value={formData.projectType}
                     onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                     className="w-full px-5 py-4 bg-brand-dark/50 border border-brand-primary/20 rounded-xl focus:border-brand-cyan focus:outline-none transition-all text-brand-light"
@@ -159,7 +159,7 @@ const ContactForm: React.FC = () => {
                 </div>
                 <div>
                   <label className="block text-[10px] font-bold text-brand-cyan mb-3 uppercase tracking-wider">Estimated Budget</label>
-                  <select 
+                  <select
                     value={formData.budget}
                     onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                     className="w-full px-5 py-4 bg-brand-dark/50 border border-brand-primary/20 rounded-xl focus:border-brand-cyan focus:outline-none transition-all text-brand-light"
@@ -174,9 +174,9 @@ const ContactForm: React.FC = () => {
 
               <div>
                 <label className="block text-[10px] font-bold text-brand-cyan mb-3 uppercase tracking-wider">Project Brief / Tell us about your idea</label>
-                <textarea 
-                  rows={4} 
-                  required 
+                <textarea
+                  rows={4}
+                  required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Outline your goal, timeline, technical stack requirements, or standard features needed..."
@@ -185,8 +185,8 @@ const ContactForm: React.FC = () => {
               </div>
 
               <div className="pt-2">
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   disabled={submitted}
                   className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-black uppercase tracking-widest text-brand-light rounded-full group bg-gradient-to-br from-brand-cyan via-brand-primary to-brand-accent hover:from-brand-cyan hover:to-brand-accent hover:text-white focus:ring-2 focus:outline-none focus:ring-brand-cyan/50 transition-all duration-300 w-full sm:w-auto shadow-lg shadow-brand-primary/20 hover:scale-105 active:scale-95"
                 >

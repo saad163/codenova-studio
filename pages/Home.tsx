@@ -7,11 +7,11 @@ const Home: React.FC = () => {
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const words = ['Build.', 'Design.', 'Scale.'];
-  
+
   useEffect(() => {
     const currentWord = words[wordIndex];
     let timer: number;
-    
+
     if (isDeleting) {
       timer = window.setTimeout(() => {
         setTypedText(currentWord.substring(0, typedText.length - 1));
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
         setTypedText(currentWord.substring(0, typedText.length + 1));
       }, 120);
     }
-    
+
     if (!isDeleting && typedText === currentWord) {
       // Pause at full word
       timer = window.setTimeout(() => setIsDeleting(true), 2000);
@@ -29,55 +29,55 @@ const Home: React.FC = () => {
       setIsDeleting(false);
       setWordIndex((prev) => (prev + 1) % words.length);
     }
-    
+
     return () => clearTimeout(timer);
   }, [typedText, isDeleting, wordIndex]);
 
   const servicesPreview = [
-    { 
-      title: 'Web Platforms Development', 
-      desc: 'Blazing fast, responsive web applications built with Next.js, React, and TypeScript. Optimized for SEO and Google search indexing.', 
-      icon: 'fa-code', 
-      tag: 'React / Next.js' 
+    {
+      title: 'Web Platforms Development',
+      desc: 'Blazing fast, responsive web applications built with Next.js, React, and TypeScript. Optimized for SEO and Google search indexing.',
+      icon: 'fa-code',
+      tag: 'React / Next.js'
     },
-    { 
-      title: 'Shopify E-Commerce Stores', 
-      desc: 'High-end custom Shopify storefronts with conversion-optimized layouts, liquid engine engineering, and headless options.', 
-      icon: 'fa-bag-shopping', 
-      tag: 'Shopify Development' 
+    {
+      title: 'Shopify E-Commerce Stores',
+      desc: 'High-end custom Shopify storefronts with conversion-optimized layouts, liquid engine engineering, and headless options.',
+      icon: 'fa-bag-shopping',
+      tag: 'Shopify Development'
     },
-    { 
-      title: 'Full Stack Backend Architectures', 
-      desc: 'Secure behind-the-scenes APIs, data managers, and databases built using Laravel, Python, and scalable MySQL environments.', 
-      icon: 'fa-server', 
-      tag: 'Laravel / Django' 
+    {
+      title: 'Full Stack Backend Architectures',
+      desc: 'Secure behind-the-scenes APIs, data managers, and databases built using Laravel, Python, and scalable MySQL environments.',
+      icon: 'fa-server',
+      tag: 'Laravel / Django'
     }
   ];
 
   const featuredProjects = [
-    { 
-      title: 'NovaShop Headless Platform', 
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800', 
+    {
+      title: 'NovaShop Headless Platform',
+      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
       tag: 'E-Commerce Platform',
-      tech: ['React', 'Next.js', 'GraphQL', 'Shopify Engine'] 
+      tech: ['React', 'Next.js', 'GraphQL', 'Shopify Engine']
     },
-    { 
-      title: 'Apex CRM System Dashboard', 
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800', 
+    {
+      title: 'Apex CRM System Dashboard',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
       tag: 'Enterprise Full Stack SaaS',
-      tech: ['TypeScript', 'Node.js', 'PostgreSQL', 'Charts'] 
+      tech: ['TypeScript', 'Node.js', 'PostgreSQL', 'Charts']
     },
-    { 
-      title: 'Quantum HSL ColorLab', 
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800', 
+    {
+      title: 'Quantum HSL ColorLab',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
       tag: 'Developer UX Utility',
-      tech: ['Vite', 'React', 'HTML5 Canvas', 'TailwindCSS'] 
+      tech: ['Vite', 'React', 'HTML5 Canvas', 'TailwindCSS']
     }
   ];
 
   return (
     <div className="bg-brand-dark min-h-screen text-brand-light relative">
-      
+
       {/* Premium Hero Section with Shifting Space Gradient */}
       <section className="relative min-h-screen flex items-center pt-24 overflow-hidden animated-bg">
         {/* Background Visual Layer overlays */}
@@ -87,7 +87,7 @@ const Home: React.FC = () => {
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="max-w-4xl">
-            
+
             {/* Smooth Top tag entrance */}
             <div className="inline-flex items-center space-x-2 bg-brand-primary/10 border border-brand-primary/30 px-4 py-2 rounded-full mb-6 backdrop-blur-sm animate-fade-down">
               <span className="w-2 h-2 bg-brand-cyan rounded-full animate-ping"></span>
@@ -101,21 +101,21 @@ const Home: React.FC = () => {
               We Code. We Design. <br />
               We <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-primary to-brand-accent glow-text-cyan blink-cursor">{typedText}</span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-brand-slate mb-12 font-medium max-w-2xl leading-relaxed animate-fade-up" style={{ animationDelay: '0.2s' }}>
               We are a modern software studio and digital agency engineering high-performance web platforms, custom Shopify storefronts, premium UI/UX, and scalable backend architectures.
             </p>
-            
+
             {/* Animated Call To Actions */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-              <Link 
-                to="/portfolio" 
-                className="bg-gradient-to-r from-brand-cyan to-brand-primary hover:from-brand-cyan hover:to-brand-primary text-brand-light px-10 py-4.5 rounded-full font-bold uppercase tracking-wider transition-all text-center shadow-lg shadow-brand-cyan/20 hover:shadow-brand-cyan/40 hover:scale-105 active:scale-95 duration-300"
+              <Link
+                to="/portfolio"
+                className="p-[13px] bg-gradient-to-r from-brand-cyan to-brand-primary hover:from-brand-cyan hover:to-brand-primary text-brand-light px-10 py-4.5 rounded-full font-bold uppercase tracking-wider transition-all text-center shadow-lg shadow-brand-cyan/20 hover:shadow-brand-cyan/40 hover:scale-105 active:scale-95 duration-300"
               >
                 View Live Work
               </Link>
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="border border-brand-primary/40 hover:border-brand-cyan text-brand-light bg-brand-card/30 hover:bg-brand-card/75 px-10 py-4.5 rounded-full font-bold uppercase tracking-wider transition-all text-center backdrop-blur-sm hover:scale-105 duration-300"
               >
                 Connect With Saad
@@ -163,8 +163,8 @@ const Home: React.FC = () => {
               <h3 className="text-brand-cyan font-bold uppercase tracking-widest text-xs mb-4">Core Competencies</h3>
               <h2 className="text-3xl md:text-5xl font-display font-black">Our Services Preview</h2>
             </div>
-            <Link 
-              to="/services" 
+            <Link
+              to="/services"
               className="bg-brand-card hover:bg-brand-primary/20 text-brand-cyan border border-brand-primary/30 px-8 py-3.5 rounded-full font-bold uppercase tracking-wider text-xs transition-all duration-300 hover:scale-105"
             >
               Explore Services
@@ -173,8 +173,8 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {servicesPreview.map((service, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className="glass-card glass-card-hover p-8 rounded-3xl relative overflow-hidden group hover-scale"
               >
                 <div className="w-14 h-14 rounded-2xl bg-brand-primary/10 flex items-center justify-center mb-8 border border-brand-primary/20 group-hover:bg-brand-primary/20 transition-all duration-300">
@@ -200,8 +200,8 @@ const Home: React.FC = () => {
               <h3 className="text-brand-cyan font-bold uppercase tracking-widest text-xs mb-4">Engineering Showcase</h3>
               <h2 className="text-3xl md:text-5xl font-display font-black">Featured Products</h2>
             </div>
-            <Link 
-              to="/portfolio" 
+            <Link
+              to="/portfolio"
               className="bg-brand-card hover:bg-brand-primary/20 text-brand-light border border-brand-primary/30 px-8 py-3.5 rounded-full font-bold uppercase tracking-wider text-xs transition-all duration-300 hover:scale-105"
             >
               Browse Full Portfolio
@@ -220,7 +220,7 @@ const Home: React.FC = () => {
                 <div className="absolute bottom-0 left-0 p-8 w-full">
                   <span className="text-brand-cyan text-[10px] font-bold uppercase tracking-widest mb-2 block">{project.tag}</span>
                   <h3 className="text-brand-light text-2xl font-display font-bold mb-4">{project.title}</h3>
-                  
+
                   {/* Tech stack chips */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((t, idx) => (
@@ -280,20 +280,20 @@ const Home: React.FC = () => {
             Ready to Accelerate Your <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-accent">Digital Footprint?</span>
           </h2>
-          
+
           <p className="text-base md:text-lg text-brand-slate mb-12 max-w-2xl mx-auto leading-relaxed">
             Let's launch a premium web application, a custom e-commerce solution, or an enterprise SaaS product. Contact our development studio today to receive a free roadmap.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="bg-gradient-to-r from-brand-cyan to-brand-primary hover:from-brand-cyan hover:to-brand-primary text-brand-light px-12 py-5 rounded-full font-bold uppercase tracking-wider transition-all shadow-lg shadow-brand-cyan/20 hover:shadow-brand-cyan/40 hover:scale-105 duration-300 active:scale-95 text-center"
             >
               Get a Free Roadmap
             </Link>
-            <a 
-              href="mailto:muhammadsaadhasan622@gmail.com" 
+            <a
+              href="mailto:muhammadsaadhasan622@gmail.com"
               className="bg-brand-card/50 hover:bg-brand-card border border-brand-primary/30 text-brand-light px-12 py-5 rounded-full font-bold uppercase tracking-wider transition-all text-center hover:scale-105 duration-300"
             >
               Email Saad Directly
